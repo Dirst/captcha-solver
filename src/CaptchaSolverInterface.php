@@ -19,7 +19,7 @@ interface CaptchaSolverInterface
    * @return array
    *   Data to get captcha solution.
    */
-  public function sendCaptchaImage(&$image);
+    public function sendCaptchaImage(&$image);
 
   /**
    * Get captcha solution.
@@ -34,5 +34,5 @@ interface CaptchaSolverInterface
    * @return string
    *   Captcha solution as text.
    */
-  public function getCaptchaSolution($id, $waitSolutionSec = 5, $maxSolutionWaitSec = 120);
+    public function getCaptchaSolution($id, $waitSolutionSec = 5, $maxSolutionWaitSec = 120);
 }

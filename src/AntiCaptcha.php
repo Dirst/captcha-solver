@@ -1,6 +1,7 @@
 <?php
 
 namespace Dirst\CaptchaSolver;
+
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7;
@@ -35,10 +36,11 @@ class AntiCaptcha implements CaptchaSolverInterface
      * @param ClientInterface $client
      *   Http Client.
      * @param array $antiCaptchaParams
-     *   Parameters for anticaptcha. 
+     *   Parameters for anticaptcha.
      *   ImageToTextTask parameters Only.
      */
-    public function __construct($apiKey, ClientInterface $client, $antiCaptchaParams = []) {
+    public function __construct($apiKey, ClientInterface $client, $antiCaptchaParams = [])
+    {
         $this->apiKey = $apiKey;
         $this->client = $client;
         $this->parameters = $antiCaptchaParams;
@@ -123,7 +125,7 @@ class AntiCaptcha implements CaptchaSolverInterface
      *   Data to send to service.
      *
      * @return array
-     *   Array of data from service.  
+     *   Array of data from service.
      *
      * @throws CaptchaNotSolvedException
      *   Thrown if Not possible to solve a Captcha.
