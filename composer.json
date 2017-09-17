@@ -1,0 +1,19 @@
+{
+    "name": "dirst/captcha-solver",
+    "description": "PHP Library to solve captcha via anti captcha services integration",
+    "authors": [
+        {
+          "name": "dirst",
+          "email": "dirst.guy@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4" : {
+            "Dirst\\CaptchaSolver\\" : "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": "^6.2.0"
+    }
+}
