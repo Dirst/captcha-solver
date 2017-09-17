@@ -24,6 +24,9 @@ class AntiCaptcha implements CaptchaSolverInterface
     // @var ClientInterface Http Client
     private $client;
     
+    // @var array anti captcha parameters.
+    private $parameters;
+    
     /**
      * Constructs AntiCaptcha Object.
      *
@@ -31,10 +34,14 @@ class AntiCaptcha implements CaptchaSolverInterface
      *   Api Key for service.
      * @param ClientInterface $client
      *   Http Client.
+     * @param array $antiCaptchaParams
+     *   Parameters for anticaptcha. 
+     *   ImageToTextTask parameters Only.
      */
-    public function __construct($apiKey, ClientInterface $client) {
+    public function __construct($apiKey, ClientInterface $client, $antiCaptchaParams = []) {
         $this->apiKey = $apiKey;
         $this->client = $client;
+        $this->parameters = $antiCaptchaParams;
     }
 
     /**
@@ -53,6 +60,9 @@ class AntiCaptcha implements CaptchaSolverInterface
             "minLength" => 0,
             "maxLength" => 0
         ];
+        
+        // Merge parameters.
+        $captchaTask = array_merge($captchaTask, $this->parameters);
 
         // Try to send captcha to service.
         try {
