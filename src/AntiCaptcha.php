@@ -17,7 +17,7 @@ use Dirst\CaptchaSolver\Exception\CaptchaSolverErrorException;
 class AntiCaptcha implements CaptchaSolverInterface
 {
     // @var string captcha api endpoint.
-    protected $apiEndpoint = 'https://api.anti-captcha.com/';
+    protected $apiEndpoint = 'https://api.anti-captcha.com';
 
     // @var string Api key for app.
     private $apiKey;
@@ -132,7 +132,7 @@ class AntiCaptcha implements CaptchaSolverInterface
      */
     protected function requestToCaptchaApi($method, array $data)
     {
-        $responseResult = $this->client->post($this->apiEndpoint, ['form_params' => $data])->getBody();
+        $responseResult = $this->client->post($this->apiEndpoint . "/" . $method, ['json' => $data])->getBody();
         $responseResult = json_decode($responseResult, true);
 
         // Check if error is occured.
